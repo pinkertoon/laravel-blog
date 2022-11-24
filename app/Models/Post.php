@@ -11,11 +11,11 @@ class Post extends Model
 
     public function tags()
     {
-        $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function category()
     {
-        $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }
