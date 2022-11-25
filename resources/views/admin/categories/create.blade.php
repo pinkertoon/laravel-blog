@@ -33,10 +33,28 @@
             </div>
             </div>
             <div class="card-body">
-            Start creating your amazing application!
+                <div class="card card-primary">
+                    <div class="card-header">
+                       <h3 class="card-title">Создание категории</h3>
+                    </div>
+                    <form method="POST" action="{{ route('admin.categories.store') }}">
+                        @csrf
+                       <div class="card-body">
+                          <div class="form-group">
+                             <label for="title">Название</label>
+                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Enter title">
+                          </div>
+                       </div>
+                       <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">Сохранить</button>
+                       </div>
+                    </form>
+                 </div>
             </div>
+
             <!-- /.card-body -->
             <div class="card-footer">
+            Footer
             </div>
             <!-- /.card-footer-->
         </div>
