@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCategory;
-use App\Models\Category;
+use App\Http\Requests\StoreTag;
+use App\Models\Tag;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::simplePaginate(5);
-        return view('admin.categories.index', compact('categories'));
+        $tags = Tag::simplePaginate(5);
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.tags.create');
     }
 
     /**
@@ -35,13 +35,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategory $request)
+    public function store(StoreTag $request)
     {
-        Category::create($request->all());
+        Tag::create($request->all());
 
-        $request->session()->flash('success', 'Категория добавлена');
+        $request->session()->flash('success', 'Тэг добавлен');
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -63,9 +63,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+        $tag = Tag::find($id);
 
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.tags.edit', compact('Tag'));
     }
 
     /**
@@ -75,12 +75,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCategory $request, $id)
+    public function update(StoreTag $request, $id)
     {
-        $category = Category::find($id);
-        $category->update($request->all());
+        $tag = Tag::find($id);
+        $tag->update($request->all());
 
-        return redirect()->route('admin.categories.index')->with('success', 'Категория обновлена');
+        return redirect()->route('admin.tags.index')->with('success', 'Тэг обновлен');
 
     }
 
@@ -92,9 +92,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $tag = Tag::find($id);
+        $tag->delete();
 
-        return redirect()->route('admin.categories.index')->with('success', 'Категория ' . $category->title . ' удалена');
+        return redirect()->route('admin.tags.index')->with('success', 'Тэг ' . $tag->title . ' удален');
     }
 }
