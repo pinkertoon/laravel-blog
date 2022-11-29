@@ -68,6 +68,8 @@
                         </tbody>
                      </table>
                     </div>
+
+
                 </div>
                 @else
                     <p>Категорий пока нет</p>
@@ -75,12 +77,13 @@
 
             <!-- /.card-body -->
             <div class="card-footer">
-                {{ $categories->links() }}
             </div>
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->
-
+        <div class="pagination pagination-sm">
+            {{ $categories }}
+        </div>
         </section>
         <!-- /.content -->
 @endsection

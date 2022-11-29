@@ -212,8 +212,15 @@
         </ul>
     </div>
     @endif
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
     @yield('content')
   </div>
+
+
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">

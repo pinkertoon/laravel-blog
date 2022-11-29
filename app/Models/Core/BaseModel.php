@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Core;
 
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Sluggable\HasSlug;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\SlugOptions;
 
-class Tag extends Model
+class BaseModel extends Model
 {
     use HasFactory;
     use HasSlug;
-
-    public function posts()
-    {
-        return $this->belongsToMany(Post::class);
-    }
 
     public function getSlugOptions() : SlugOptions
     {
