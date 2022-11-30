@@ -168,53 +168,51 @@
                 </a>
               </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-circle"></i>
               <p>
-                Level 1
+                Категории
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.categories.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
+                  <p>Список категорий</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.categories.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    Level 2
-                    <i class="right fas fa-angle-left"></i>
+                    Новая категория
                   </p>
                 </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                </ul>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Тэги
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.tags.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
+                  <p>Список тэгов</p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="{{ route('admin.tags.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Новый тэг
+                  </p>
                 </a>
               </li>
             </ul>
@@ -229,7 +227,25 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
     @yield('content')
+  </div>
+
+
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">
