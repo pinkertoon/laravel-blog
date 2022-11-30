@@ -46,16 +46,16 @@
                            </tr>
                         </thead>
                         <tbody>
-                            @foreach ($tags as $category)
+                            @foreach ($tags as $tag)
                             <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->title }}</td>
-                                <td>{{ $category->slug }}</td>
+                                <td>{{ $tag->id }}</td>
+                                <td>{{ $tag->title }}</td>
+                                <td>{{ $tag->slug }}</td>
                                 <td>
-                                  <a href="{{ route('admin.tags.edit', ['category' => $category->id]) }}" class="btn btn-info btn-sm float-left mr-1">
+                                  <a href="{{ route('admin.tags.edit', ['tag' => $tag->id]) }}" class="btn btn-info btn-sm float-left mr-1">
                                       <i class="fas fa-pencil-alt"></i>
                                   </a>
-                                  <form action="{{ route('admin.tags.destroy', ['category' => $category->id]) }}" method="POST" class="float-left">
+                                  <form action="{{ route('admin.tags.destroy', ['tag' => $tag->id]) }}" method="POST" class="float-left">
                                     @csrf
                                     @method('DELETE')
                                       <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Вы уверены что хоитите удалить?')">

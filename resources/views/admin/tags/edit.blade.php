@@ -37,7 +37,7 @@
                     <div class="card-header">
                        <h3 class="card-title">Создание категории</h3>
                     </div>
-                    <form method="POST" action="{{ route('admin.tags.update', ['category' => $tag->id]) }}">
+                    <form method="POST" action="{{ route('admin.tags.update', ['tag' => $tag->id]) }}">
                         @method('PUT')
                         @csrf
                        <div class="card-body">

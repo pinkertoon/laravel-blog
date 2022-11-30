@@ -65,7 +65,7 @@ class TagController extends Controller
     {
         $tag = Tag::find($id);
 
-        return view('admin.tags.edit', compact('Tag'));
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
